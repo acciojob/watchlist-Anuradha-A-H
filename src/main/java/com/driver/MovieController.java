@@ -53,7 +53,7 @@ public class MovieController {
     }
 
     @GetMapping("/get_movie_by_director_name/{name}")
-    public ResponseEntity<List<String>> getMoviesByDirectorByName(@PathVariable String director)
+    public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director)
     {
         List<String> movies = movieService.findMoviesFromDirector(director);
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
@@ -73,7 +73,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/delete_all_director")
-    public ResponseEntity<String> deleteAllDirector()
+    public ResponseEntity<String> deleteAllDirectors()
     {
         movieService.deleteAllDirector();
         return new ResponseEntity<>(" All Removed successfully",HttpStatus.CREATED);
